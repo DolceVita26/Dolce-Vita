@@ -168,6 +168,19 @@
         }
         .s-card i { font-size: 35px; color: var(--primary); margin-bottom: 25px; display: block; }
 
+        /* --- TESTIMONIOS --- */
+        .testimonials { background: var(--bg-light); }
+        .t-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .t-card { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); font-style: italic; }
+        .t-card p { color: var(--text-dim); margin-bottom: 20px; }
+        .t-author { font-weight: 600; color: var(--primary); font-family: 'Montserrat'; font-style: normal; }
+
+        /* --- FAQ --- */
+        .faq-item { margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .faq-question { font-weight: 600; cursor: pointer; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { margin-top: 10px; color: var(--text-dim); display: none; }
+        .faq-item.active .faq-answer { display: block; }
+
         /* --- FORMULARIO --- */
         .apply-container { 
             max-width: 800px; 
@@ -180,54 +193,24 @@
         }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         
-        /* Contenedor de teléfono con prefijo */
-        .phone-input-group {
-            display: flex;
-            gap: 10px;
-        }
-        .phone-code {
-            flex: 0 0 130px;
-            font-size: 14px;
-            text-align: left;
-            padding-left: 10px;
-        }
+        .phone-input-group { display: flex; gap: 10px; }
+        .phone-code { flex: 0 0 130px; font-size: 14px; text-align: left; padding-left: 10px; }
 
         input, select, textarea { 
-            width: 100%; 
-            padding: 18px; 
-            background: var(--bg-light); 
-            border: 1px solid var(--border); 
-            border-radius: 12px; 
-            color: var(--text-dark); 
-            font-family: inherit;
-            transition: 0.3s;
+            width: 100%; padding: 18px; background: var(--bg-light); 
+            border: 1px solid var(--border); border-radius: 12px; color: var(--text-dark); 
+            font-family: inherit; transition: 0.3s;
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: white; }
         .full-col { grid-column: span 2; }
         .submit-btn { 
-            width: 100%; 
-            padding: 20px; 
-            background: var(--primary); 
-            color: white; 
-            border: none; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            font-weight: 600; 
-            letter-spacing: 2px;
-            transition: 0.3s;
+            width: 100%; padding: 20px; background: var(--primary); color: white; 
+            border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase; 
+            font-weight: 600; letter-spacing: 2px; transition: 0.3s;
         }
         .submit-btn:hover { background: var(--primary-dark); }
         
-        /* Mensajes de Estado */
-        #status {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 12px;
-            font-weight: 600;
-            display: none;
-        }
+        #status { text-align: center; margin-top: 20px; padding: 15px; border-radius: 12px; font-weight: 600; display: none; }
         #status.success { display: block; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         #status.error { display: block; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
@@ -235,17 +218,10 @@
         footer { padding: 80px 10% 40px; text-align: center; background: var(--bg-light); }
         .footer-logo img { width: 180px; margin-bottom: 20px; }
         
-        /* Estilos de Iconos Sociales con Colores Originales */
-        .social-icons a { 
-            margin: 0 15px; 
-            font-size: 26px; 
-            transition: 0.3s; 
-            text-decoration: none; 
-            display: inline-block;
-        }
-        .social-icons a:hover { transform: scale(1.1); }
+        .social-icons a { margin: 0 15px; font-size: 26px; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .social-icons a:hover { transform: scale(1.2); }
         
-        /* Colores específicos de marca */
+        /* Colores de Marca */
         .fa-facebook { color: #1877F2; }
         .fa-instagram { color: #E4405F; }
         .fa-telegram { color: #26A5E4; }
@@ -254,11 +230,42 @@
 
         .copy { margin-top: 30px; font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
 
+        /* WhatsApp Flotante (CORREGIDO) */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 9999;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        /* Forzamos el logo blanco y su tamaño */
+        .floating-wa i {
+            color: #ffffff !important;
+            font-size: 32px !important;
+            display: block;
+        }
+
+        .floating-wa:hover { 
+            transform: scale(1.1); 
+            background: #20ba5a;
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .form-row { grid-template-columns: 1fr; }
             .full-col { grid-column: span 1; }
             header h1 { font-size: 2.5rem; }
+            section { padding: 60px 5%; }
         }
     </style>
 </head>
@@ -273,8 +280,8 @@
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#faq">Preguntas</a></li>
             <li><a href="#unirse">Aplicar</a></li>
-            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
@@ -308,6 +315,44 @@
         </div>
     </section>
 
+    <section class="testimonials" id="testimonios">
+        <div class="section-title">
+            <h2>Experiencias Reales</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="t-grid">
+            <div class="t-card">
+                <p>"Desde que me uní a Dolce Vita, mis ingresos se triplicaron y siempre me siento protegida."</p>
+                <div class="t-author">- Model M.A.</div>
+            </div>
+            <div class="t-card">
+                <p>"El soporte es increíble. No sabía nada de streaming y hoy es mi fuente principal de ingresos."</p>
+                <div class="t-author">- Model Luna</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="divider"></div>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <div class="faq-question">¿Necesito experiencia previa? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">No, nosotros te capacitamos desde cero con las mejores técnicas de monetización.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo se garantiza mi privacidad? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Implementamos bloqueos de IP por país y región para que nadie en tu entorno sepa de tu actividad.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cuáles son los requisitos de pago? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Realizamos pagos semanales o quincenales a través de diversos métodos seguros y directos.</div>
+            </div>
+        </div>
+    </section>
+
     <section id="unirse">
         <div class="apply-container">
             <div class="section-title">
@@ -320,24 +365,13 @@
                     <input type="text" name="Nombre" placeholder="Nombre completo o Alias" required>
                     <div class="phone-input-group">
                         <select name="Prefijo" class="phone-code" required>
-                            <!-- Sustitución de banderas por códigos de texto claros para máxima compatibilidad -->
                             <option value="+54">ARG (+54)</option>
                             <option value="+591">BOL (+591)</option>
                             <option value="+55">BRA (+55)</option>
                             <option value="+56">CHI (+56)</option>
                             <option value="+57" selected>COL (+57)</option>
-                            <option value="+506">CRI (+506)</option>
-                            <option value="+53">CUB (+53)</option>
-                            <option value="+593">ECU (+593)</option>
-                            <option value="+503">SLV (+503)</option>
-                            <option value="+502">GTM (+502)</option>
-                            <option value="+504">HND (+504)</option>
                             <option value="+52">MEX (+52)</option>
-                            <option value="+505">NIC (+505)</option>
-                            <option value="+507">PAN (+507)</option>
-                            <option value="+595">PRY (+595)</option>
                             <option value="+51">PER (+51)</option>
-                            <option value="+598">URY (+598)</option>
                             <option value="+58">VEN (+58)</option>
                         </select>
                         <input type="tel" name="Contacto" placeholder="Teléfono" required>
@@ -367,17 +401,33 @@
             <img src="Logo_Dolce_Vita.png" alt="Dolce Vita Footer">
         </div>
         <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-telegram"></i></a>
-            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>        
+            <a href="https://facebook.com/tu_usuario" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com/tu_usuario" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/tu_usuario" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://tiktok.com/@tu_usuario" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/573239122301?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20la%20agencia" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>        
         </div>
         <p class="copy">&copy; 2026 DOLCE VITA MANAGEMENT. EXCLUSIVIDAD Y ELEGANCIA.</p>
     </footer>
 
-    <!-- Lógica de Formspree con AJAX -->
+    <!-- Botón Flotante de WhatsApp CORREGIDO -->
+    <a href="https://wa.me/573239122301?text=Hola,%20quiero%20aplicar%20a%20Dolce%20Vita" class="floating-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script>
+        // Lógica del FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                item.classList.toggle('active');
+                const icon = q.querySelector('i');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            });
+        });
+
+        // Lógica de Formspree con respuesta visual
         const form = document.getElementById("dolce-form");
         const status = document.getElementById("status");
         const btn = document.getElementById("submit-btn");
@@ -385,36 +435,27 @@
         async function handleSubmit(event) {
           event.preventDefault();
           const data = new FormData(event.target);
-          
           btn.disabled = true;
           btn.innerText = "Enviando...";
 
           fetch(event.target.action, {
             method: form.method,
             body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
           }).then(response => {
             if (response.ok) {
-              status.innerHTML = "¡Solicitud enviada con éxito! Te contactaremos muy pronto.";
+              status.innerHTML = "¡Solicitud enviada! Te contactaremos muy pronto.";
               status.className = "success";
               form.reset();
               btn.innerText = "¡Enviado!";
             } else {
-              response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                  status.innerHTML = "Vaya, hubo un problema al enviar tu solicitud.";
-                }
-                status.className = "error";
-                btn.disabled = false;
-                btn.innerText = "Intentar de nuevo";
-              })
+              status.innerHTML = "Vaya, hubo un problema al enviar.";
+              status.className = "error";
+              btn.disabled = false;
+              btn.innerText = "Intentar de nuevo";
             }
           }).catch(error => {
-            status.innerHTML = "Error de conexión. Inténtalo de nuevo más tarde.";
+            status.innerHTML = "Error de conexión.";
             status.className = "error";
             btn.disabled = false;
             btn.innerText = "Intentar de nuevo";
