@@ -19,6 +19,7 @@
             --text-dark: #2d2626;
             --text-dim: #6d5f5f;
             --border: #ece2e2;
+            --accent-black: #000000;
         }
 
         * {
@@ -121,7 +122,18 @@
             max-width: 650px;
             font-size: 1.2rem;
             color: var(--text-dim);
+            margin-bottom: 15px;
+        }
+
+        .highlight-phrase {
+            color: var(--accent-black);
+            font-weight: 700;
+            font-size: 1.2rem;
             margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            /* Línea eliminada aquí */
+            padding-bottom: 5px;
         }
 
         .cta-btn {
@@ -151,7 +163,12 @@
         .section-title .divider { width: 50px; height: 2px; background: var(--primary); margin: 0 auto; }
 
         /* --- SERVICIOS --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+        }
+        
         .s-card { 
             background: var(--bg-light); 
             padding: 50px 30px; 
@@ -160,13 +177,22 @@
             border: 1px solid var(--border); 
             transition: 0.4s; 
         }
+        
         .s-card:hover { 
             border-color: var(--primary); 
             transform: translateY(-10px);
             background: white;
             box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
+        
         .s-card i { font-size: 35px; color: var(--primary); margin-bottom: 25px; display: block; }
+
+        /* VIP Centered Fix */
+        @media (min-width: 993px) {
+            .vip-centered {
+                grid-column: 2; 
+            }
+        }
 
         /* --- TESTIMONIOS --- */
         .testimonials { background: var(--bg-light); }
@@ -177,9 +203,11 @@
 
         /* --- FAQ --- */
         .faq-item { margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
-        .faq-question { font-weight: 600; cursor: pointer; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { margin-top: 10px; color: var(--text-dim); display: none; }
+        .faq-question { font-weight: 600; cursor: pointer; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; padding: 10px 0; font-size: 1.1rem; }
+        .faq-answer { margin-top: 10px; color: var(--text-dim); display: none; padding-right: 20px; }
         .faq-item.active .faq-answer { display: block; }
+        .faq-item i { transition: 0.3s; }
+        .faq-item.active i { transform: rotate(45deg); }
 
         /* --- FORMULARIO --- */
         .apply-container { 
@@ -221,7 +249,6 @@
         .social-icons a { margin: 0 15px; font-size: 26px; transition: 0.3s; text-decoration: none; display: inline-block; }
         .social-icons a:hover { transform: scale(1.2); }
         
-        /* Colores de Marca */
         .fa-facebook { color: #1877F2; }
         .fa-instagram { color: #E4405F; }
         .fa-telegram { color: #26A5E4; }
@@ -230,29 +257,29 @@
 
         .copy { margin-top: 30px; font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
 
-        /* WhatsApp Flotante (CORREGIDO) */
+        /* WhatsApp Flotante */
         .floating-wa {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: #25D366;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             z-index: 9999;
             transition: 0.3s;
             text-decoration: none;
         }
 
-        /* Forzamos el logo blanco y su tamaño */
         .floating-wa i {
             color: #ffffff !important;
-            font-size: 32px !important;
-            display: block;
+            font-size: 35px !important;
+            margin: 0;
+            padding: 0;
         }
 
         .floating-wa:hover { 
@@ -260,8 +287,14 @@
             background: #20ba5a;
         }
 
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .vip-centered { grid-column: span 1; } 
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .full-col { grid-column: span 1; }
             header h1 { font-size: 2.5rem; }
@@ -282,25 +315,27 @@
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#faq">Preguntas</a></li>
             <li><a href="#unirse">Aplicar</a></li>
+            <li><a href="#contacto-redes">Contacto</a></li>
         </ul>
     </nav>
 
     <header id="inicio">
         <h1>La <span>Dolce Vita</span> <br>del Streaming</h1>
-        <p>Lideramos la gestión de modelos digitales con un enfoque en la elegancia y la alta rentabilidad. Tu éxito es nuestra prioridad.</p>
+        <p>Lideramos la gestión de modelos digitales con un enfoque en la elegancia y la alta rentabilidad.</p>
+        <div class="highlight-phrase">¡Tu éxito es nuestra prioridad!</div>
         <a href="#unirse" class="cta-btn">Comienza hoy</a>
     </header>
 
     <section id="servicios">
         <div class="section-title">
-            <h2>Nuestros Pilares</h2>
+            <h2>Nuestros Servicios</h2>
             <div class="divider"></div>
         </div>
         <div class="services-grid">
             <div class="s-card">
-                <i class="fa-solid fa-user-shield"></i>
-                <h3>Privacidad</h3>
-                <p>Garantizamos anonimato mediante VPN para tu privacidad y seguridad.</p>
+                <i class="fa-solid fa-gift"></i>
+                <h3>Bonos</h3>
+                <p>Tienes la oportunidad de ganar bonos por tu rendimiento.</p>
             </div>
             <div class="s-card">
                 <i class="fa-solid fa-rocket"></i>
@@ -311,6 +346,26 @@
                 <i class="fa-solid fa-gem"></i>
                 <h3>Exclusividad</h3>
                 <p>Trato preferencial y soporte humano disponible las 24 horas del día.</p>
+            </div>
+            <div class="s-card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>Horarios</h3>
+                <p>Utilizamos sistemas de horarios flexibles desde la comodidad de tu casa.</p>
+            </div>
+            <div class="s-card">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Privacidad</h3>
+                <p>Garantizamos anonimato mediante VPN para tu privacidad y seguridad.</p>
+            </div>
+            <div class="s-card">
+                <i class="fa-solid fa-money-bill-trend-up"></i>
+                <h3>Rentabilidad</h3>
+                <p>Únete a nuestro equipo y gana desde 726 USD mensuales.</p>
+            </div>
+            <div class="s-card vip-centered">
+                <i class="fa-solid fa-crown"></i>
+                <h3>VIP</h3>
+                <p>Experiencia Premium de video chat con nuestras plataformas.</p>
             </div>
         </div>
     </section>
@@ -327,7 +382,7 @@
             </div>
             <div class="t-card">
                 <p>"El soporte es increíble. No sabía nada de streaming y hoy es mi fuente principal de ingresos."</p>
-                <div class="t-author">- Natalia ModeL D.V</div>
+                <div class="t-author">- Natalia Model D.V</div>
             </div>
         </div>
     </section>
@@ -339,16 +394,32 @@
         </div>
         <div style="max-width: 800px; margin: 0 auto;">
             <div class="faq-item">
+                <div class="faq-question">¿Cuáles son los métodos de pago? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Realizamos pagos semanales o quincenales a través de cuentas bancarias nacionales o internacionales con métodos seguros y directos.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Podría ganar más mensualmente? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Si, dependiendo de tu rendimiento así será remunerado.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Puedo escoger los horarios? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Si, tenemos turnos diurnos, nocturnos o mixtos.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cuales son las experiencias premium de las plataformas? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Nuestras plataformas tienen diferentes formas de monetización.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Qué clase de bonos ganaría? <i class="fa-solid fa-plus"></i></div>
+                <div class="faq-answer">Podrías ganar bonos de belleza, entretenimiento, económico, etc.</div>
+            </div>
+            <div class="faq-item">
                 <div class="faq-question">¿Necesito experiencia previa? <i class="fa-solid fa-plus"></i></div>
                 <div class="faq-answer">No, nosotros te capacitamos desde cero con las mejores técnicas de monetización.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">¿Cómo se garantiza mi privacidad? <i class="fa-solid fa-plus"></i></div>
                 <div class="faq-answer">Implementamos el uso de VPN en algunas de las plataformas que permiten su uso.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">¿Cuáles son los metodos de pago? <i class="fa-solid fa-plus"></i></div>
-                <div class="faq-answer">Realizamos pagos semanales o quincenales a través de cuentas bancarias nacionales o internacionales con métodos seguros y directos.</div>
             </div>
         </div>
     </section>
@@ -363,6 +434,9 @@
             <form id="dolce-form" action="https://formspree.io/f/mjgawdob" method="POST">
                 <div class="form-row">
                     <input type="text" name="Nombre" placeholder="Nombre completo" required>
+                    <input type="number" name="Edad" placeholder="Edad" min="18" required>
+                </div>
+                <div class="form-row">
                     <div class="phone-input-group">
                         <select name="Prefijo" class="phone-code" required>
                             <option value="+54">ARG (+54)</option>
@@ -376,9 +450,7 @@
                         </select>
                         <input type="tel" name="Contacto" placeholder="Teléfono" required>
                     </div>
-                </div>
-                <div class="form-row">
-                    <input type="email" name="Email" placeholder="Correo electrónico" class="full-col" required>
+                    <input type="email" name="Email" placeholder="Correo electrónico" required>
                 </div>
                 <div class="form-row">
                     <select name="Experiencia" class="full-col" required>
@@ -396,7 +468,7 @@
         </div>
     </section>
 
-    <footer id="contacto">
+    <footer id="contacto-redes">
         <div class="footer-logo">
             <img src="Logo_Dolce_Vita.png" alt="Dolce Vita Footer">
         </div>
@@ -410,24 +482,18 @@
         <p class="copy">&copy; 2026 DOLCE VITA MANAGEMENT. EXCLUSIVIDAD Y ELEGANCIA.</p>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp CORREGIDO -->
     <a href="https://wa.me/573239122301?text=Hola,%20quiero%20aplicar%20a%20Dolce%20Vita" class="floating-wa" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <script>
-        // Lógica del FAQ
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
                 const item = q.parentElement;
                 item.classList.toggle('active');
-                const icon = q.querySelector('i');
-                icon.classList.toggle('fa-plus');
-                icon.classList.toggle('fa-minus');
             });
         });
 
-        // Lógica de Formspree con respuesta visual
         const form = document.getElementById("dolce-form");
         const status = document.getElementById("status");
         const btn = document.getElementById("submit-btn");
@@ -466,12 +532,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
