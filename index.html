@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dolce Vita | Virtual Streaming Agency</title>
-    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <!-- Iconos de FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -132,7 +130,6 @@
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            /* Línea eliminada aquí */
             padding-bottom: 5px;
         }
 
@@ -299,6 +296,20 @@
             .full-col { grid-column: span 1; }
             header h1 { font-size: 2.5rem; }
             section { padding: 60px 5%; }
+
+            /* AJUSTE ESPECÍFICO PARA TELÉFONO EN MÓVIL */
+            .phone-input-group {
+                display: flex;
+                width: 100%;
+            }
+            .phone-code {
+                flex: 0 0 95px !important; /* Selector de país más pequeño */
+                padding: 10px !important;
+                font-size: 12px !important;
+            }
+            input[name="Contacto"] {
+                flex: 1 !important; /* El campo de teléfono toma todo el resto del espacio */
+            }
         }
     </style>
 </head>
@@ -532,4 +543,3 @@
 
 </body>
 </html>
-
